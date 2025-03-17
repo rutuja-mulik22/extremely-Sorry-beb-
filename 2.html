@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncy Heart Message Multiple Times</title>
+    <style>
+        /* Bouncing animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Style for the heart emoji */
+        .heart {
+            font-size: 30px;
+            display: inline-block;
+            animation: bounce 0.6s ease infinite;
+        }
+
+        /* Style for the message */
+        .message {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:void(0);" onclick="showMultipleMessages()">Click here to see the heart messages</a>
+
+    <div id="messagesContainer"></div>
+
+    <script type="text/javascript">
+        function showMultipleMessages() {
+            // Get the container to append messages
+            var container = document.getElementById("messagesContainer");
+            
+            // Number of times you want to show the message
+            var repeatCount = 5; // Change this value for more/less messages
+
+            // Clear previous messages if any
+            container.innerHTML = "";
+
+            // Loop to append messages multiple times
+            for (var i = 0; i < repeatCount; i++) {
+                // Create a new message div
+                var messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                messageDiv.innerHTML = "Sorry! <span class='heart'>💖</span>";
+
+                // Append the message div to the container
+                container.appendChild(messageDiv);
+            }
+        }
+    </script>
+</body>
+</html>
